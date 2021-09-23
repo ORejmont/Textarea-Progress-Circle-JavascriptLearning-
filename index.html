@@ -8,7 +8,18 @@
     <title>Loading Textarea</title>
 </head>
 <body>
-    
+    <form action="GET">
+        <textarea placeholder="Vložte libovolný text..." autofocus></textarea>
+
+        <div>
+            <p id="counter">50</p>
+
+            <svg>
+                <circle cy="50%" cx="50%" r="8px"></circle>
+                <circle class="progress" cy="50%" cx="50%" r="8px"></circle>
+            </svg>
+        </div>
+    </form>
 
     <script src="js/main.js"></script>
 </body>

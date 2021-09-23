@@ -1,2 +1,20 @@
 // Circle
 
+svg {
+    height: 20px;
+    width: 20px;
+    transform: rotate(-90deg);
+
+    circle {
+        fill: none;
+        stroke: rgb(110, 110, 110);
+        stroke-width: $stroke;
+    }
+
+    .progress {
+        fill: none;
+        stroke: $default;
+        stroke-width: $stroke-progress;
+        animation: .2s stroke-width ease-in-out;
+    }
+}
