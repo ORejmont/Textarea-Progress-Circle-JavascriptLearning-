@@ -10,6 +10,8 @@ function auto_grow(element) {
 
 
 // Progress Circle
+let progressCircle = document.querySelector('.progress');
+let progressCircleR = progressCircle.getAttribute('r');
 let counter = document.getElementById('counter');
 let textarea = document.getElementById('textarea');
 
@@ -21,4 +23,11 @@ textarea.addEventListener('input', function(e) {
     let textareaLength = textarea.value.length;
     counter.textContent = charactersLength - textareaLength;
 // COUNTER
+
+    let progressCircleLength = parseInt(progressCircleR, 10) * 2 * Math.PI;
+    let percentage = textareaLength / charactersLength;
+    let newOffset = progressCircleLength * percentage;
+
+    progressCircle.style.strokeDashoffset = progressCircleLength - newOffset;
+    progressCircle.style.strokeDasharray = progressCircleLength;
 });
