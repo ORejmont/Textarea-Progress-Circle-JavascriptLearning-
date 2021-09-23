@@ -1,0 +1,15 @@
+{
+    "version": 3,
+    "mappings": "ACEA,OAAO,CAAC,wEAAI;AGAZ,AAAA,CAAC,CAAC;EACE,OAAO,EAAE,CAAC;EACV,MAAM,EAAE,CAAC;EACT,UAAU,EAAE,OAAO;EACnB,WAAW,EAAE,yBAAyB;CACzC;;AAED,AAAA,IAAI,CAAC;EACD,UAAU,EAAE,UAAU;CACzB",
+    "sources": [
+        "base.scss",
+        "_fonts.scss",
+        "_variables.scss",
+        "_animations.scss",
+        "_main.scss",
+        "_textarea.scss",
+        "_svgCircle.scss"
+    ],
+    "names": [],
+    "file": "base.css"
+}
