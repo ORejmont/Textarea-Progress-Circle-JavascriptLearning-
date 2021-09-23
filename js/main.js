@@ -7,3 +7,18 @@ function auto_grow(element) {
 // + 30px, aby tam bylo másto na progress circle a counter
     element.style.height = (element.scrollHeight) + 30 + "px";
 }
+
+
+// Progress Circle
+let counter = document.getElementById('counter');
+let textarea = document.getElementById('textarea');
+
+textarea.addEventListener('input', function(e) {
+    // Length of characters (CAN BE CHANGED)
+    let charactersLength = 50;
+
+// COUNTER
+    let textareaLength = textarea.value.length;
+    counter.textContent = charactersLength - textareaLength;
+// COUNTER
+});
