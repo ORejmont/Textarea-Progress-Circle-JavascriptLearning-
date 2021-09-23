@@ -10,11 +10,25 @@ svg {
         stroke: rgb(110, 110, 110);
         stroke-width: $stroke;
     }
+}
 
-    .progress {
-        fill: none;
-        stroke: $default;
-        stroke-width: $stroke-progress;
-        animation: .2s stroke-width ease-in-out;
-    }
+.progress {
+    fill: none;
+    stroke: $default;
+    stroke-width: $stroke-progress;
+    animation: .2s stroke-width ease-in-out;
+}
+
+.warning {
+    stroke: $warning;
+}
+
+.danger {
+    stroke: $danger;
+    color: $danger;
+    stroke-width: $stroke-wide;
+}
+
+.over {
+    animation: bounce .4s ease-out;
 }

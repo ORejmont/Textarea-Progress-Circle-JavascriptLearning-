@@ -1,4 +1,27 @@
 @import url("https://fonts.googleapis.com/css2?family=Lexend+Deca&display=swap");
+@-webkit-keyframes bounce {
+  0% {
+    stroke-width: 4px;
+  }
+  10% {
+    stroke-width: 5px;
+  }
+  100% {
+    stroke-width: 4px;
+  }
+}
+@keyframes bounce {
+  0% {
+    stroke-width: 4px;
+  }
+  10% {
+    stroke-width: 5px;
+  }
+  100% {
+    stroke-width: 4px;
+  }
+}
+
 * {
   padding: 0;
   margin: 0;
@@ -68,11 +91,26 @@ svg circle {
   stroke-width: 2px;
 }
 
-svg .progress {
+.progress {
   fill: none;
   stroke: #008cff;
   stroke-width: 3px;
   -webkit-animation: .2s stroke-width ease-in-out;
           animation: .2s stroke-width ease-in-out;
+}
+
+.warning {
+  stroke: #ffa600;
+}
+
+.danger {
+  stroke: red;
+  color: red;
+  stroke-width: 4px;
+}
+
+.over {
+  -webkit-animation: bounce .4s ease-out;
+          animation: bounce .4s ease-out;
 }
 /*# sourceMappingURL=base.css.map */

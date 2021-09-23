@@ -1,2 +1,7 @@
 // Animations
 
+@keyframes bounce {
+    0% {stroke-width: $stroke-wide;}
+    10% {stroke-width: $stroke-bounce;}
+    100% {stroke-width: $stroke-wide;}
+}

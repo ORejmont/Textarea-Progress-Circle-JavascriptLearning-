@@ -28,6 +28,22 @@ textarea.addEventListener('input', function(e) {
     let percentage = textareaLength / charactersLength;
     let newOffset = progressCircleLength * percentage;
 
-    progressCircle.style.strokeDashoffset = progressCircleLength - newOffset;
-    progressCircle.style.strokeDasharray = progressCircleLength;
+    if (textareaLength > 0) {
+        
+        progressCircle.classList.toggle('warning', textareaLength >= charactersLength - 10);
+        progressCircle.classList.toggle('danger', textareaLength > charactersLength);
+        progressCircle.classList.toggle('over', textareaLength >= charactersLength + 1);
+
+        counter.classList.toggle('danger', textareaLength > charactersLength);
+        
+        if (textareaLength <= charactersLength) {
+            progressCircle.style.strokeDashoffset = progressCircleLength - newOffset;
+            progressCircle.style.strokeDasharray = progressCircleLength;
+        }
+
+
+
+// Potřebuju počítat 'progressCircle.style.strokeDashoffset = progressCircleLength - newOffset;' i když je 'textareaLength > charactersLength'
+        console.log(textareaLength);
+    }
 });
