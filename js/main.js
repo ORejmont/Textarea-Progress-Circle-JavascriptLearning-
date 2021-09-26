@@ -9,6 +9,7 @@ function auto_grow(element) {
 }
 
 
+const progress = (function(){
 // Progress Circle
 let progressCircle = document.querySelector('.progress');
 let progressCircleR = progressCircle.getAttribute('r');
@@ -24,9 +25,18 @@ let progressCircleLength = parseInt(progressCircleR, 10) * 2 * Math.PI;
 progressCircle.style.strokeDashoffset = progressCircleLength;
 progressCircle.style.strokeDasharray = progressCircleLength;
 
-textarea.addEventListener('input', function(e) {
-    
+// COLORS
+function handleColors(textareaLength) {
+    progressCircle.classList.toggle('warning', textareaLength >= charactersLength - 10);
+    progressCircle.classList.toggle('danger', textareaLength > charactersLength);
+    progressCircle.classList.toggle('over', textareaLength >= charactersLength + 1);
 
+    counter.classList.toggle('danger', textareaLength > charactersLength);
+}
+// COLORS
+
+
+textarea.addEventListener('input', function(e) {
 // COUNTER
     let textareaValue = textarea.value;
     let textareaLength = textareaValue.length;
@@ -36,32 +46,16 @@ textarea.addEventListener('input', function(e) {
     let percentage = textareaLength / charactersLength;
     let newOffset = progressCircleLength * percentage;
 
-    if (textareaLength > 0) {
+    if (textareaLength >= 0) {
         
-        progressCircle.classList.toggle('warning', textareaLength >= charactersLength - 10);
-        progressCircle.classList.toggle('danger', textareaLength > charactersLength);
-        progressCircle.classList.toggle('over', textareaLength >= charactersLength + 1);
+        handleColors(textareaLength);
 
-
-        // console.log(e);
-
-        // if (textareaLength > charactersLength) {
-        //     textarea.style.backgroundColor = "rgba(255, 0, 0, .6)";
-            
-        // }
-        // textareaValue.classList.toggle('danger-text', textareaLength > charactersLength);
-        // textarea.innerHTML = `${textareaValue.slice(0, charactersLength)}<mark>${textareaValue.slice(charactersLength)}</mark>`
-
-        counter.classList.toggle('danger', textareaLength > charactersLength);
+        progressCircle.style.strokeDashoffset = 0;
         
         if (textareaLength <= charactersLength) {
             progressCircle.style.strokeDashoffset = progressCircleLength - newOffset;
             progressCircle.style.strokeDasharray = progressCircleLength;
         }
-
-
-
-// Potřebuju počítat 'progressCircle.style.strokeDashoffset = progressCircleLength - newOffset;' i když je 'textareaLength > charactersLength'
-        console.log(textareaLength);
     }
 });
+}());
