@@ -3,9 +3,9 @@
 
 // TEXT AREA AUTOGROW (used in html code)
 function auto_grow(element) {
-    element.style.height = "80px";
+    element.style.height = "100px";
 // + 30px, aby tam bylo másto na progress circle a counter
-    element.style.height = (element.scrollHeight) + 30 + "px";
+    element.style.height = (element.scrollHeight) + "px";
 }
 
 
@@ -20,7 +20,8 @@ textarea.addEventListener('input', function(e) {
     let charactersLength = 50;
 
 // COUNTER
-    let textareaLength = textarea.value.length;
+    let textareaValue = textarea.value;
+    let textareaLength = textareaValue.length;
     counter.textContent = charactersLength - textareaLength;
 // COUNTER
 
@@ -33,6 +34,15 @@ textarea.addEventListener('input', function(e) {
         progressCircle.classList.toggle('warning', textareaLength >= charactersLength - 10);
         progressCircle.classList.toggle('danger', textareaLength > charactersLength);
         progressCircle.classList.toggle('over', textareaLength >= charactersLength + 1);
+
+
+        // console.log(e);
+
+        // if (textareaLength > charactersLength) {
+        //     textarea.style.backgroundColor = "rgba(255, 0, 0, .6)";
+            
+        // }
+        // textareaValue.classList.toggle('danger-text', textareaLength > charactersLength);
 
         counter.classList.toggle('danger', textareaLength > charactersLength);
         
