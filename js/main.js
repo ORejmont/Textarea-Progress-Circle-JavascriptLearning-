@@ -15,9 +15,17 @@ let progressCircleR = progressCircle.getAttribute('r');
 let counter = document.getElementById('counter');
 let textarea = document.getElementById('textarea');
 
+// Length of characters (CAN BE CHANGED)
+let charactersLength = 50;
+
+counter.textContent = charactersLength;
+
+let progressCircleLength = parseInt(progressCircleR, 10) * 2 * Math.PI;
+progressCircle.style.strokeDashoffset = progressCircleLength;
+progressCircle.style.strokeDasharray = progressCircleLength;
+
 textarea.addEventListener('input', function(e) {
-    // Length of characters (CAN BE CHANGED)
-    let charactersLength = 50;
+    
 
 // COUNTER
     let textareaValue = textarea.value;
@@ -25,7 +33,6 @@ textarea.addEventListener('input', function(e) {
     counter.textContent = charactersLength - textareaLength;
 // COUNTER
 
-    let progressCircleLength = parseInt(progressCircleR, 10) * 2 * Math.PI;
     let percentage = textareaLength / charactersLength;
     let newOffset = progressCircleLength * percentage;
 
@@ -43,6 +50,7 @@ textarea.addEventListener('input', function(e) {
             
         // }
         // textareaValue.classList.toggle('danger-text', textareaLength > charactersLength);
+        // textarea.innerHTML = `${textareaValue.slice(0, charactersLength)}<mark>${textareaValue.slice(charactersLength)}</mark>`
 
         counter.classList.toggle('danger', textareaLength > charactersLength);
         
